@@ -1,5 +1,13 @@
 # RemoveNonAsciiChars
 
+[![Build Status](https://travis-ci.org/evandrocoan/RemoveNonAsciiChars.svg?branch=master)](https://travis-ci.org/evandrocoan/RemoveNonAsciiChars)
+[![Build status](https://ci.appveyor.com/api/projects/status/github/evandrocoan/RemoveNonAsciiChars?branch=master&svg=true)](https://ci.appveyor.com/project/evandrocoan/RemoveNonAsciiChars/branch/master)
+[![codecov](https://codecov.io/gh/evandrocoan/RemoveNonAsciiChars/branch/master/graph/badge.svg)](https://codecov.io/gh/evandrocoan/RemoveNonAsciiChars)
+[![Coverage Status](https://coveralls.io/repos/github/evandrocoan/RemoveNonAsciiChars/badge.svg?branch=master)](https://coveralls.io/github/evandrocoan/RemoveNonAsciiChars?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a0e28fa3cf714ec5a53065e3c6064455)](https://www.codacy.com/app/evandrocoan/RemoveNonAsciiChars?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=evandrocoan/RemoveNonAsciiChars&amp;utm_campaign=Badge_Grade)
+[![Latest Release](https://img.shields.io/github/tag/evandrocoan/RemoveNonAsciiChars.svg?label=version)](https://github.com/evandrocoan/RemoveNonAsciiChars/releases)
+<a href="https://packagecontrol.io/packages/RemoveNonAsciiChars"><img src="https://packagecontrol.herokuapp.com/downloads/RemoveNonAsciiChars.svg"></a>
+
 Simple plugin to replace non-ASCII characters to ASCII by removing accents,
 and remaining non-ASCII characters.
 
