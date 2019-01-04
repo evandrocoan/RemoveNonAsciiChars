@@ -4,6 +4,9 @@ import sublime_plugin
 # https://stackoverflow.com/questions/4324790/removing-control-characters-from-a-string-in-python
 from unicodedata import category
 
+# https://stackoverflow.com/questions/38909087/sublime-text-replace-multiple-accented-characters-with-unaccented-ones-at-once
+from unicodedata import normalize
+
 VIEW_SIZE_LIMIT = 4194304
 
 
@@ -24,8 +27,9 @@ def _remove_control(view, view_region, edit):
     view_text = view.substr(view_region)
     # print('view_text', view_text, 'view_region.a', view_region.a, 'view_region.b', view_region.b)
 
-    ascii_only = "".join(character for character in view_text if category( character )[0] != "C" or character == '\n' )
-    view.replace(edit, view_region, ascii_only)
+    ascii_only = normalize( 'NFKD', view_text).encode( 'ascii', 'ignore' ).decode('utf-8')
+    ascii_only = "".join( character for character in ascii_only if category( character )[0] != "C" or character == '\n' )
+    view.replace( edit, view_region, ascii_only )
 
 
 class RemoveNonAsciiCharsFileCommand(sublime_plugin.TextCommand):

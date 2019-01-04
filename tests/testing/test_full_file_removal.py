@@ -20,7 +20,6 @@ class OverrideCommitCompletionUnitTests(unittest.TestCase, sublime_plugin.EventL
 
         # make sure we have a window to work with
         self.view.settings().set("close_windows_when_empty", False)
-        self.view.settings().set("file_size_limit", 3)
 
     def tearDown(self):
 
@@ -42,7 +41,16 @@ class OverrideCommitCompletionUnitTests(unittest.TestCase, sublime_plugin.EventL
     def assertEqual(self, expected, *args, **kargs):
         super().assertEqual(expected, self.view.substr( sublime.Region( 0, self.view.size() ) ), *args, **kargs)
 
-    def test_camel_case_word(self):
+    def test_characters_slicing(self):
+        self.view.settings().set("file_size_limit", 3)
         self.setText( "1  2  3  4  5  6  7  " )
         self.assertEqual( "1  2  3  4  5  6  7  " )
+
+    def test_accentuation_removal(self):
+        self.setText( "á à â ä ñ" )
+        self.assertEqual( "a a a a n" )
+
+    def test_alpha_removal(self):
+        self.setText( "¡ ¿ ß" )
+        self.assertEqual( "  " )
 
